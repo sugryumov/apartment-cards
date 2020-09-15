@@ -22,8 +22,7 @@ const data: TApartmentList[] = [
   {
     id: 3,
     title: 'Микродом',
-    description:
-      '100% недавних гостей оценили прибытие на пять звезд. 100% недавних гостей оценили прибытие на пять звезд.',
+    description: '100% недавних гостей оценили прибытие на пять звезд.',
     poster_link:
       'https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
     like: false,
@@ -66,7 +65,7 @@ export const getApartmentList = () =>
   new Promise<any>((resolve, reject) => {
     setTimeout(
       () =>
-        flag < 0.8
+        flag < 0.9
           ? resolve({ data })
           : reject({
               message: 'Произошла ошибка. Перезагрузите страницу.',
