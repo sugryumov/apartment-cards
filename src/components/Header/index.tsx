@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <ContainerLayout>
       <header className="header">
-        <h1 className="header__title">Квартирник</h1>
+        <h1 className="header__title">Apartments</h1>
         <p className="header__favorites">Избранное: {favoritesCount}</p>
       </header>
     </ContainerLayout>
