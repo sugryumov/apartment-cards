@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeartIcon } from '../../../common/SVGIcon';
+import { HeartIcon, Rouble } from '../../../common/SVGIcon';
 import { TApartmentList } from '../../../types';
 import './index.css';
 
@@ -23,7 +23,9 @@ const ApartmentItem = ({ data, likeHandler }: ApartmentItem) => {
         <p className="apartment-list__title">{title}</p>
         <p className="apartment-list__description">{description}</p>
 
-        <p className="apartment-list__price">{price} ₽ за ночь</p>
+        <p className="apartment-list__price">
+          {price} <Rouble width={14} /> за ночь
+        </p>
       </div>
     </div>
   );
