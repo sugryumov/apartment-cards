@@ -1,0 +1,16 @@
+.container-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 575.98px) {
+  .container-layout {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .container-layout {
+    padding: 0 16px;
+  }
+}

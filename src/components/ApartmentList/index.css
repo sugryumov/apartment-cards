@@ -1,0 +1,24 @@
+.apartment-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  padding: 20px 0;
+}
+
+@media (max-width: 1200px) {
+  .apartment-list {
+    grid-gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .apartment-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .apartment-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

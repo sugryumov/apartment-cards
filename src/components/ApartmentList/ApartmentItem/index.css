@@ -1,0 +1,39 @@
+.apartment-list__item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #80808061;
+}
+
+.apartment-list__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.apartment-list__meta {
+  padding: 20px;
+}
+
+.apartment-list__title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.apartment-list__description {
+  margin: 16px 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.apartment-list__price {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.apartment-list__like {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
