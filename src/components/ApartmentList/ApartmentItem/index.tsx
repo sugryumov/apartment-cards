@@ -1,5 +1,6 @@
 import React from 'react';
-import { HeartIcon, Rouble } from '../../../common/SVGIcon';
+import { HeartIcon } from '../../../common/SVGIcon';
+import { formatPrice } from '../../../helpers/formatPrice';
 import { TApartmentList } from '../../../types';
 import './index.css';
 
@@ -11,11 +12,22 @@ type ApartmentItem = {
 const ApartmentItem = ({ data, likeHandler }: ApartmentItem) => {
   const { id, poster_link, title, like, description, price } = data;
 
+  const onClickLikeHandler = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    id: number,
+  ) => {
+    event.stopPropagation();
+    likeHandler(id);
+  };
+
   return (
     <div key={id} className="apartment-list__item">
       <img className="apartment-list__img" src={poster_link} alt={title} />
 
-      <button className="apartment-list__like" onClick={() => likeHandler(id)}>
+      <button
+        className="apartment-list__like"
+        onClick={e => onClickLikeHandler(e, id)}
+      >
         {like ? <HeartIcon fill="crimson" /> : <HeartIcon fill="transparent" />}
       </button>
 
@@ -24,7 +36,7 @@ const ApartmentItem = ({ data, likeHandler }: ApartmentItem) => {
         <p className="apartment-list__description">{description}</p>
 
         <p className="apartment-list__price">
-          {price} <Rouble width={14} /> за ночь
+          {formatPrice(price, 14)} за ночь
         </p>
       </div>
     </div>

@@ -1,0 +1,61 @@
+.apartment-page__header {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 60px 50px;
+  background-size: cover;
+  background-position: center;
+}
+
+.apartment-page__price {
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  background: #11a8ea;
+  border-radius: 26px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
+  text-align: center;
+  color: #fff;
+}
+
+.apartment-page__title {
+  max-width: 600px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.apartment-page__description {
+  max-width: 500px;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.apartment-page__back {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #000;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .apartment-page__header {
+    padding: 30px 20px;
+  }
+
+  .apartment-page__price {
+    font-size: 28px;
+  }
+
+  .apartment-page__title {
+    font-size: 28px;
+  }
+
+  .apartment-page__description {
+    font-size: 20px;
+  }
+}

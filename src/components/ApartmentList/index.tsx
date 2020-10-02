@@ -6,7 +6,10 @@ import ContainerLayout from '../../common/ContainerLayout';
 import Spinner from '../../common/Spinner';
 import Error from '../../common/Error';
 import ApartmentItem from './ApartmentItem';
+import ApartmentPage from '../ApartmentPage';
 import './index.css';
+
+export type TMode = 'list' | 'page';
 
 const ApartmentList = () => {
   const { apartmentList, setApartmentList } = useContext(StoreContext);
@@ -14,6 +17,11 @@ const ApartmentList = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
+
+  const [mode, setMode] = useState<TMode>('list');
+  const [apartmentPage, setApartmentPage] = useState<TApartmentList | null>(
+    null,
+  );
 
   useEffect(() => {
     getApartmentList()
@@ -49,26 +57,41 @@ const ApartmentList = () => {
     setApartmentList(findApartment);
   };
 
+  const showApartmentPage = (apartment: TApartmentList) => {
+    setMode('page');
+    setApartmentPage(apartment);
+  };
+
   const renderApartmentList = () => {
-    return apartmentList?.map((apartment: any) => {
+    return apartmentList?.map((apartment: TApartmentList) => {
       return (
-        <ApartmentItem
+        <div
+          className="apartment-list__wrap-item"
+          onClick={() => showApartmentPage(apartment)}
           key={apartment.id}
-          data={apartment}
-          likeHandler={likeHandler}
-        />
+        >
+          <ApartmentItem data={apartment} likeHandler={likeHandler} />
+        </div>
       );
     });
   };
 
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return <Error message={errorMessage} />;
+  }
+
   return (
     <ContainerLayout>
-      {loading ? (
-        <Spinner />
-      ) : error ? (
-        <Error message={errorMessage} />
-      ) : (
+      {mode === 'list' && (
         <div className="apartment-list">{renderApartmentList()}</div>
+      )}
+
+      {mode === 'page' && (
+        <ApartmentPage data={apartmentPage} setMode={setMode} />
       )}
     </ContainerLayout>
   );
